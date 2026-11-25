@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cidmxbx85xdwb" path="res://assets/16x16 Walk-Sheet.png" id="3_qhqgy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6dnw3"]
-radius = 12.165525
+radius = 28.01785
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("2_g2els")
@@ -275,20 +275,21 @@ animations = [{
 }]
 
 [sub_resource type="Gradient" id="Gradient_qhqgy"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.99759614)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_6dnw3"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mfx43"]
 gradient = SubResource("Gradient_qhqgy")
 fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 0.5)
+fill_from = Vector2(0.5086806, 0.49479166)
+fill_to = Vector2(1, 0.4809028)
 
 [node name="Player" type="CharacterBody2D" unique_id=1112123173]
 script = ExtResource("1_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1194205160]
 shape = SubResource("CircleShape2D_6dnw3")
-disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1985956393]
 scale = Vector2(2.16, 2.16)
@@ -297,6 +298,7 @@ animation = &"walk_right"
 frame_progress = 0.062097654
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1021899079]
-energy = 1.54
-texture = SubResource("GradientTexture2D_6dnw3")
-texture_scale = 3.0
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_mfx43")
+texture_scale = 5.3

@@ -2,8 +2,25 @@ extends CharacterBody2D
 
 @export var speed: float = 150.0
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var torch: PointLight2D = $PointLight2D
 
 var last_facing_direction: String = "down"
+
+func update_torch() -> void:
+	
+	if last_facing_direction == "right":
+		torch.rotation = 0
+	elif last_facing_direction == "left":
+		torch.rotation = 180
+	elif last_facing_direction == "up":
+		torch.rotation = 90
+	elif last_facing_direction == "down":
+		torch.rotation = 270
+
+func _input(event: InputEvent) -> void:
+	
+	if event.is_action_pressed("toggle_flashlight"):
+		torch.enabled = not torch.enabled
 
 func _physics_process(delta: float) -> void:
 
@@ -44,6 +61,8 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.play(animation_name) 
 
 	velocity = direction * speed
+	
+	update_torch()
 
 	move_and_slide()
 	
