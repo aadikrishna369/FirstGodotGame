@@ -5,17 +5,19 @@ extends CharacterBody2D
 @onready var torch: PointLight2D = $PointLight2D
 
 var last_facing_direction: String = "down"
+var deg2rad:float = 3.14/180
+
 
 func update_torch() -> void:
 	
 	if last_facing_direction == "right":
 		torch.rotation = 0
 	elif last_facing_direction == "left":
-		torch.rotation = 180
+		torch.rotation = 180*deg2rad
 	elif last_facing_direction == "up":
-		torch.rotation = 90
+		torch.rotation = 270*deg2rad
 	elif last_facing_direction == "down":
-		torch.rotation = 270
+		torch.rotation = 90*deg2rad
 
 func _input(event: InputEvent) -> void:
 	

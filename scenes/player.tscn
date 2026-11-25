@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://dokaygthpkq7h" path="res://scenes/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://coiw7rrqv2c76" path="res://assets/16x16 Idle-Sheet.png" id="2_g2els"]
 [ext_resource type="Texture2D" uid="uid://cidmxbx85xdwb" path="res://assets/16x16 Walk-Sheet.png" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://c0nkfgyq2ij7f" path="res://assets/circle_c.png" id="4_dqkch"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6dnw3"]
-radius = 28.01785
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqkch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("2_g2els")
@@ -274,25 +274,15 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_qhqgy"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0, 0.99759614)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_mfx43"]
-gradient = SubResource("Gradient_qhqgy")
-fill = 1
-fill_from = Vector2(0.5086806, 0.49479166)
-fill_to = Vector2(1, 0.4809028)
-
 [node name="Player" type="CharacterBody2D" unique_id=1112123173]
 script = ExtResource("1_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1194205160]
-shape = SubResource("CircleShape2D_6dnw3")
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_dqkch")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1985956393]
-scale = Vector2(2.16, 2.16)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_6dnw3")
 animation = &"walk_right"
 frame_progress = 0.062097654
@@ -300,5 +290,11 @@ frame_progress = 0.062097654
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1021899079]
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
-texture = SubResource("GradientTexture2D_mfx43")
-texture_scale = 5.3
+texture = ExtResource("4_dqkch")
+texture_scale = 0.5
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=785620777]
+limit_left = 0
+limit_top = 0
+limit_right = 1280
+limit_bottom = 720
