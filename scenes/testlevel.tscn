@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ci1oyegwxhi7p"]
+
+[ext_resource type="PackedScene" uid="uid://c4kad7nxxtqgc" path="res://scenes/player.tscn" id="1_mfx43"]
+
+[node name="Testlevel" type="Node2D" unique_id=979193950]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1154162250]
+color = Color(0.0627451, 0.08235294, 0.13333334, 1)
+
+[node name="Player" parent="." unique_id=1112123173 instance=ExtResource("1_mfx43")]
+position = Vector2(313, 190)

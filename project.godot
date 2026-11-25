@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="ChallengeGodot"
+run/main_scene="uid://ci1oyegwxhi7p"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

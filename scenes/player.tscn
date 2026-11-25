@@ -274,6 +274,15 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_qhqgy"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6dnw3"]
+gradient = SubResource("Gradient_qhqgy")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
 [node name="Player" type="CharacterBody2D" unique_id=1112123173]
 script = ExtResource("1_g2els")
 
@@ -285,4 +294,9 @@ disabled = true
 scale = Vector2(2.16, 2.16)
 sprite_frames = SubResource("SpriteFrames_6dnw3")
 animation = &"walk_right"
-frame_progress = 0.40771043
+frame_progress = 0.062097654
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1021899079]
+energy = 1.54
+texture = SubResource("GradientTexture2D_6dnw3")
+texture_scale = 3.0
